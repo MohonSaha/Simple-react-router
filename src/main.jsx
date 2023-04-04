@@ -10,26 +10,11 @@ import About from './components/About/About';
 import Contract from './components/Contract/Contract';
 import Home from './components/Home/Home';
 import First from './components/First/First';
-import Friend from './components/Friend/Friend'
-import FriendDetails from './components/FriendDetails/FriendDetails';
 import Posts from './components/Posts/Posts';
 import PostDetails from './components/PostDetails/PostDetails';
+import NotFound from './components/NotFound/NotFound';
 
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <App></App>,
-//   },
-//   {
-//     path: "/about",
-//     element: <About></About>,
-//   },
-//   {
-//     path: "/contract",
-//     element: <Contract></Contract>,
-//   },
-// ]);
 
 
 
@@ -51,16 +36,6 @@ const router = createBrowserRouter([
         element: <Contract></Contract>,
       },
       {
-        path: '/friend',
-        element: <Friend></Friend>,
-        loader: () => fetch('https://jsonplaceholder.typicode.com/users'),
-      },
-      {
-        path: '/singlefriend/:friendId',
-        element: <FriendDetails></FriendDetails>,
-        loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/users/${params.friendId}`)
-      },
-      {
         path: '/posts',
         element: <Posts></Posts>,
         loader: () => fetch('https://jsonplaceholder.typicode.com/posts')
@@ -69,6 +44,10 @@ const router = createBrowserRouter([
         path: 'post/:postId',
         element: <PostDetails></PostDetails>,
         loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`)
+      },
+      {
+        path: '*',
+        element: <NotFound></NotFound>,
       }
 
     ]
